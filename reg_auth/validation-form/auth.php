@@ -15,4 +15,4 @@ if(!$userName) {
     exit();
 }
 setcookie('user', $userName, time() + 3600, "/");
-header('location: ../reg.php');
+header('location: ../../about.php');

@@ -21,7 +21,7 @@
                 <a href="services.php">services</a>
             </li>
             <li>
-                <a href="log_in.php">log in</a>
+                <a href="log_in.php">log in/out</a>
             </li>
         </ul>
     </div>

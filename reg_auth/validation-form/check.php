@@ -5,14 +5,30 @@ $name = filter_var(trim($_POST['name']));
 $pass = filter_var(trim($_POST['pass']));
 if(mb_strlen($login) < 5 || mb_strlen($login) > 90) {
     echo "недопустимая длинна логина меньше 5 не больше 90";
+    ?>
+    <form method="get" action="../../index.php">
+        <button type="submit">Перейти обратно</button>
+    </form>
+<?php
    exit();
 }else if(mb_strlen($name) < 3 || mb_strlen($name) > 50) {
     echo "недопустимая длинна имени меньше 3 не больше 50";
+    ?>
+    <form method="get" action="../../index.php">
+        <button type="submit">Перейти обратно</button>
+    </form>
+    <?php
     exit();
 }else if(mb_strlen($pass) < 2 || mb_strlen($pass) > 8) {
     echo "недопустимая длинна пароля от 2 до 8";
+    ?>
+    <form method="get" action="../../index.php">
+        <button type="submit">Перейти обратно</button>
+    </form>
+    <?php
    exit();
 }
+
 $pass = md5($pass."rtytryt777");
 require('../db.php');
 
@@ -20,7 +36,8 @@ $mysql = mysqli_query( $conn,"INSERT INTO users (login, name, pass) VALUES ('$lo
 //header('location: ../personal_account/index.php');
 //$sql= "INSERT INTO users (login,name,pass) VALUES ('".$_POST['login']."','".$_POST['name']."','".$_POST['pass']."')";
 //$sql= "INSERT INTO users (login,name,pass) VALUES ('".$_POST['login']."','".$_POST['name']."','".$_POST['pass']."')";
-require('../../index.php');
+//require('../../index.php');
+header('location: ../../log_in.php');
 //echo ('tttt');
 
 

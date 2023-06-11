@@ -19,6 +19,7 @@ require "parts/menu.php";
             <input type="password" class="form-control" name="pass" id="pass" placeholder="введите пароль"><br>
             <button class="btn btn-success" type="submit">зарегистрировать</button>
         </form>
+
     </div>
 </div>
 <?php
