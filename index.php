@@ -1,12 +1,12 @@
 <?php
 $title = "Главная страница";
-require "header.php";
+require "parts/header.php";
 ?>
 
 
 
 <?php
-require "menu.php";
+require "parts/menu.php";
 //require "reg_auth/reg.php";
 ?>
 <div id="row">
@@ -22,5 +22,5 @@ require "menu.php";
     </div>
 </div>
 <?php
-    require "footer.php";
+    require "parts/footer.php";
 ?>

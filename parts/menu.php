@@ -18,7 +18,7 @@
                 <a href="product.php">products</a>
             </li>
             <li>
-                <a href="reg_auth/log_in.php">log in</a>
+                <a href="log_in.php">log in</a>
             </li>
         </ul>
     </div>
