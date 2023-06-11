@@ -18,6 +18,9 @@
                 <a href="product.php">products</a>
             </li>
             <li>
+                <a href="services.php">services</a>
+            </li>
+            <li>
                 <a href="log_in.php">log in</a>
             </li>
         </ul>
