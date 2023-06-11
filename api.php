@@ -19,5 +19,3 @@ curl_close($ch);
 
 $data = json_decode($res, 1);
 $currentTime = time();
-
-?>

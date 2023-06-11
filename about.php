@@ -1,4 +1,3 @@
-
 <?php
 $title = "Про нас";
 require "header.php";
