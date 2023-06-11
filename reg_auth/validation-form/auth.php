@@ -12,7 +12,14 @@ $userName = $result->fetch_column(0);
 
 if(!$userName) {
     echo "пользователь не найден";
+    ?>
+    <form method="get" action="../../log_in.php">
+        <button type="submit">Перейти обратно</button>
+    </form>
+    <?php
     exit();
+
 }
 setcookie('user', $userName, time() + 3600, "/");
 header('location: ../../about.php');
+?>
