@@ -4,7 +4,9 @@ require "parts/header.php";
 require "parts/menu.php";
 require "api.php";
 ?>
-<h1>Products</h1>
+    <div class="container">
+       <div> <h1>Products</h1>
+    </div>
     <div class="table">
         <table>
             <tr>
@@ -27,7 +29,7 @@ foreach ($products['data'] as $key=>$value) { ?>
     <?php  }?>
 </table>
 
-
+    </div>
 </div>
 <?php
 require "parts/footer.php";

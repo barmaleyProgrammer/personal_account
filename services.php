@@ -4,8 +4,7 @@ require "parts/header.php";
 require "parts/menu.php";
 require "api.php";
 ?>
-
-
+    <div class="container">
     <h1>Services</h1>
     <div class="table">
         <table>
@@ -26,6 +25,8 @@ require "api.php";
 
             <?php  }?>
         </table>
+</div>
+    </div>
 </div>
 <?php
 require "parts/footer.php";

@@ -3,30 +3,30 @@ $title = "Про нас";
 require "parts/header.php";
 require "parts/menu.php";
 ?>
-    <section>
+    <section class="about">
         <div class="container">
-            <div class="row">
-                <div class="col-6">
-                        <h2 class="text-uppercase color1 mb-5">про нас</h2>
-                </div>
-            </div>
-        <div class="row">
-            <div class="col-xl-9 col-lg-12">
-                <div style="width: 400px; margin-right: 13px;">
-                    <div class="col-xl-3 col-lg-12 text-center">
-                        <div class="product-car__picture">
-                            <img class="product-car__pic" src="img/валид%20телпо%20копія.jpg">
-                         </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="text-center text-uppercase color2 mb-5">Про нас</h2>
+                        </div>
                     </div>
-                                <div class="product-car__text text">
-                                     <h4>Бескондукторная схема</h4>
-            <p>При учете поездок используются стационарные валидаторы на входах в транспортное средство – схема обеспечивает высокую стабильность при пиковых нагрузках на большом пассажиропотоке. Существенно снижает расходы на инкассацию и степень риска, связанного с человеческим фактором. Минимизирует долю оплаты наличными и не требует наличия кондуктора.
-            </p>
-                                </div>
-                </div>
-            </div>
+                    <div class="row row align-items-center">
+                        <div class="col-xl-9 col-lg-12">
+                            <div class="row align-items-center mb-5">
+                                    <div class="col-lg-6 col-sm-12">
+                                        <h5>Курс доступний в спецТГ-каналіКурс доступний в спец ТГ-каналі</h5>
+                                        <h5>Можно навчатися в спеціальній групі</h5>
+                                        <h5>Курс коштує 1грн</h5>
+                                        <h5>Можна придбати<a href="https://ua.korrespondent.net/" target="_blank">тут</a></h5>
+                                        <h5>Відео курса на ТГ</h5>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12 mb-sm-5 mt-sm-5 text-center">
+                                        <img  src="img/валид%20телпо%20копія.jpg" alt="валидатор" class="img-fluid">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
         </div>
-    </div>
     </section>
 <?php
 require "parts/footer.php";

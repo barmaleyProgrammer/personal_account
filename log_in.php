@@ -9,8 +9,8 @@ require('parts/menu.php');
 ?>
 <div class="container mt-4">
     <?php if(($_COOKIE['user'] ?? '') === ''): ?>
-    <div class="row">
-        <div class="col">
+    <div id="row">
+        <div class="col-12">
                     <h1>Авторизация</h1>
                     <form action="reg_auth/validation-form/auth.php" method="post">
                         <input type="text" class="form-control" name="login" id="login" placeholder="введите логин"><br>
