@@ -14,7 +14,7 @@
                         <a href="contacts.php">контакты</a>
                     </li>
                     <li>
-                        <a href="card.php">cards</a>
+                        <a href="cards.php">cards</a>
                     </li>
                     <li>
                         <a href="product.php">products</a>

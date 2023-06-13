@@ -15,7 +15,7 @@ require "parts/menu.php";
                             <div class="row align-items-center mb-5">
                                     <div class="col-lg-6 col-sm-12">
                                         <h5>Ми пропонуємо надійний сервіс</h5>
-                                        <h5>Легка реєєстрація</h5>
+                                        <h5>Легка реєстрація</h5>
                                         <h5>Зручне придбання</h5>
                                         <h5>Наші контакти<a href="https://ua.korrespondent.net/" target="_blank">тут</a></h5>
                                         <h5>соціальні пильги</h5>

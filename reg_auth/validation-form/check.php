@@ -34,7 +34,8 @@ $pass = md5($pass."rtytryt777");
 require('../db.php');
 
 $mysql = mysqli_query( $conn,"INSERT INTO users (login, name, pass) VALUES ('$login', '$name', '$pass')");
-$mysql = mysqli_query( $conn,"INSERT INTO cards (name, card) VALUES ('$name', '$card')");
+$userid = mysqli_insert_id($conn);
+$mysql = mysqli_query( $conn,"INSERT INTO cards (user_id, card) VALUES ('$userid', '$card')");
 //header('location: ../personal_account/index.php');
 //$sql= "INSERT INTO users (login,name,pass) VALUES ('".$_POST['login']."','".$_POST['name']."','".$_POST['pass']."')";
 //$sql= "INSERT INTO users (login,name,pass) VALUES ('".$_POST['login']."','".$_POST['name']."','".$_POST['pass']."')";
