@@ -11,7 +11,7 @@
  Target Server Version : 100335
  File Encoding         : 65001
 
- Date: 13/06/2023 14:00:00
+ Date: 14/06/2023 15:39:18
 */
 
 SET NAMES utf8mb4;
@@ -23,16 +23,35 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `cards`;
 CREATE TABLE `cards` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `card` varchar(255) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `card` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cards
 -- ----------------------------
 BEGIN;
-INSERT INTO `cards` (`id`, `name`, `card`) VALUES (1, 'qqqqq', '11111');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (4, 141, '33333');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (5, 142, '44444');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (6, 144, '1111111111');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (25, 144, '7777777');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (32, 144, '1234567');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (33, 144, '1234567');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (37, 144, '12345678');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (46, 144, '2121213');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (47, 144, '654321');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (50, 142, '3232324');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (55, 142, '9878656534');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (56, 142, '123456765');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (60, 142, '5432234');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (61, 142, 'оропорр');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (62, 142, '8675546');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (63, 142, 'rere456');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (64, 142, 'iyguygj');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (65, 144, 'ererr44');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (67, 145, 'uytuyyy');
+INSERT INTO `cards` (`id`, `user_id`, `card`) VALUES (68, 145, 'тьиьтиьь');
 COMMIT;
 
 -- ----------------------------
@@ -312,56 +331,18 @@ CREATE TABLE `users` (
   `login` varchar(100) NOT NULL,
   `pass` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ux_login` (`login`)
+) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 BEGIN;
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (2, 'wwwwww', '', '');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (3, '111111', '', '');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (4, 'ffffff', '', '');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (5, 'vvvvv', '12121', 'vvvvv');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (6, 'natatata', '44', 'gereer');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (7, 'login', '', 'name');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (8, 'login', '', 'nasme');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (9, 'login', '', 'nam');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (100, 'dddddd', 'dddd', 'ddddd');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (101, 'mnbmnb', '7b2dde523d39309b050c0d2a9febee2a', 'mhkhbkh');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (102, 'mnbmnb', '7b2dde523d39309b050c0d2a9febee2a', 'mhkhbkh');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (103, 'mnbmnb', '7b2dde523d39309b050c0d2a9febee2a', 'mhkhbkh');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (104, 'mnbmnb', '7b2dde523d39309b050c0d2a9febee2a', 'mhkhbkh');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (105, 'bbbbb', 'fc7ad4adb7dd9c6def6f9b00a81398bc', 'bbbbb');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (108, 'rrrrr', 'd27a36344cb4f91ed5bc520f92368081', 'rrrrr');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (109, 'rrrrr', 'd27a36344cb4f91ed5bc520f92368081', 'rrrrr');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (110, 'levlev', '875978b004641cd39f471d6a1a555083', 'levlev');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (111, 'huuuu', '56625d5d4c36470a2148d1aa02a42aa9', 'levlev');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (112, 'huuuu', '56625d5d4c36470a2148d1aa02a42aa9', 'levlev');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (113, 'huuuu', '07b865c83e66d980d582c6f6584238b7', 'levlev');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (114, 'barmaley', 'df4a13fac2118fe2dcb5d67e90926911', 'barmaley');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (115, 'barmaley', 'df4a13fac2118fe2dcb5d67e90926911', 'barmaley');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (116, 'ppppp', '3daf0abd44b83fbcc3342e6d207dcea7', 'ppppp');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (117, 'ppppp', '3daf0abd44b83fbcc3342e6d207dcea7', 'ppppp');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (118, 'ppppp', '3daf0abd44b83fbcc3342e6d207dcea7', 'ppppp');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (119, 'ppppp', '3daf0abd44b83fbcc3342e6d207dcea7', 'ppppp');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (120, 'iiiii', '27ba9fa0d53c59f2ec817aa001a54e68', 'iiiii');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (121, 'iiiii', '27ba9fa0d53c59f2ec817aa001a54e68', 'iiiii');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (122, 'iiiii', '27ba9fa0d53c59f2ec817aa001a54e68', 'iiiii');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (123, 'iiiii', '27ba9fa0d53c59f2ec817aa001a54e68', 'iiiii');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (124, 'qqqqq', '1ef3d829e106427d55f4c26f3948ffa2', 'qqqqq');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (125, 'qqqqq', '1ef3d829e106427d55f4c26f3948ffa2', 'qqqqq');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (126, 'wwwww', 'acc16df21cdb94f68aa71360eeb137c6', 'wwwww');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (127, 'wwwww', 'acc16df21cdb94f68aa71360eeb137c6', 'wwwww');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (128, 'wwwww', 'acc16df21cdb94f68aa71360eeb137c6', 'wwwww');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (129, 'wwwww', 'acc16df21cdb94f68aa71360eeb137c6', 'wwwww');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (132, 'ttttt', '31a566063e5487d1c224cb67fbdf8434', 'ttttt');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (133, 'wwwww', 'acc16df21cdb94f68aa71360eeb137c6', 'wwwww');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (134, 'xxxxx', '716b3a5c2ba215a50ba695cba36e5c93', 'xxxxx');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (135, 'ccccc', '1be18bd914187a1afd5f531e058def28', 'ccccc');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (136, 'qqqqq', 'c938847109fe8b382385cef0f4425dd5', 'qqqqq');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (137, 'qqqqq', 'c938847109fe8b382385cef0f4425dd5', 'qqqqq');
-INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (138, 'qqqqq', 'c938847109fe8b382385cef0f4425dd5', 'qqqqq');
+INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (141, 'rrrrr', 'd27a36344cb4f91ed5bc520f92368081', 'rrrrr');
+INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (142, 'eeeee', '14cd7464a380030dfa031b8ef798889b', 'eeeee');
+INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (144, 'qqqqq', '1ef3d829e106427d55f4c26f3948ffa2', 'qqqqq');
+INSERT INTO `users` (`id`, `login`, `pass`, `name`) VALUES (145, 'ttttt', '31a566063e5487d1c224cb67fbdf8434', 'ttttt');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
