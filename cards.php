@@ -5,7 +5,7 @@ require "parts/menu.php";
 require('reg_auth/db.php');
 require "api.php";
 if ($_COOKIE['user'] ?? ''):
-    else: echo 'для просмотру вмісту будь ласка <a href="index.php" target="_blank">увійдіть</a> або <a href="https://ua.korrespondent.net/" target="_blank">зареєструйтеся</a>';
+    else: echo 'для просмотру вмісту будь ласка <a href="log_in.php" target="_blank">увійдіть</a> або <a href="https://ua.korrespondent.net/" target="_blank">зареєструйтеся</a>';
         exit();
         endif;
 
