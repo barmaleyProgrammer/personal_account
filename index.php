@@ -1,5 +1,5 @@
 <?php
-$title = "Главная страница";
+$title = "Головна сторінка";
 require "parts/header.php";
 ?>
 
@@ -12,7 +12,7 @@ require "parts/menu.php";
 <div class="container">
     <div class="col-12">
         <div id="row">
-            <h1>Регистрация</h1>
+            <h1>Реєстрація</h1>
             <form action="reg_auth/validation-form/check.php" method="post">
                 <input type="text" class="form-control" name="login" id="login" placeholder="введіть логін"><br>
                 <input type="text" class="form-control" name="name" id="name" placeholder="введіть имʼя"><br>

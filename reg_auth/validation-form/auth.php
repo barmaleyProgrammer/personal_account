@@ -11,7 +11,7 @@ $result = mysqli_query($conn,"SELECT name FROM users WHERE login = '$login' AND 
 $userName = $result->fetch_column(0);
 
 if(!$userName) {
-    echo "пользователь не найден";
+    echo "користувача не знайдено";
     ?>
     <form method="get" action="../../log_in.php">
         <button type="submit">Перейти обратно</button>
