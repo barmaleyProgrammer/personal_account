@@ -22,9 +22,9 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                         <div class="table">
                             <table>
                                 <tr>
-                                    <td>id</td>
-                                    <td>мої картки</td>
-                                    <td>Видалити</td>
+                                    <th>id</th>
+                                    <th>мої картки</th>
+                                    <th>Видалити</th>
                                 </tr>
                                 <?php
                                 while($obj=mysqli_fetch_array($result)) { ?>

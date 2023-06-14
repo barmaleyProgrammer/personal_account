@@ -2,6 +2,9 @@ table {
     width: 100%;
     text-align: center;
 }
+table, th, td {
+    border: 1px solid black;
+}
 :root {
     --color1: #05b1b1;
     --color2: #52339f;
