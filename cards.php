@@ -1,4 +1,5 @@
 <?php
+$title = "картки";
 require "parts/header.php";
 require "parts/menu.php";
 require('reg_auth/db.php');
@@ -18,13 +19,14 @@ $result = mysqli_query($conn,"SELECT id, card FROM cards WHERE user_id = '$useri
                                 <tr>
                                     <th>id</th>
                                     <th>мої картки</th>
+                                    <th></th>
                                 </tr>
                                 <?php
                                 while($obj=mysqli_fetch_array($result)) { ?>
                                     <tr>
                                         <td> <?= $obj['id'] ?></td>
                                         <td> <?= $obj['card'] ?></td>
-                                        <td></td>
+                                        <td> <a href="deleted_cards.php?cardid=<?= $obj['id'] ?>">X</a></td>
                                     </tr>
                                 <?php  }?>
                             </table>
@@ -32,6 +34,10 @@ $result = mysqli_query($conn,"SELECT id, card FROM cards WHERE user_id = '$useri
                     <form action="add_card.php" method="post">
                         <input type="text" class="form-control" name="card" id="card" placeholder="введіть номер картки"><br>
                         <button class="btn btn-success" type="submit">додати картку</button>
+                    </form>
+                    <form action="deleted_cards.php" method="post">
+                        <input type="text" class="form-control" name="card" id="card" placeholder="введіть номер картки"><br>
+                        <button class="btn btn-success" type="submit">видалити картку</button>
                     </form>
 <!--                        <nav class="navbar navbar-expand-sm navbar-light bg-light">-->
 <!--                            <ul class="navbar-nav">-->
