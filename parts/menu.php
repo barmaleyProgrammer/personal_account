@@ -15,22 +15,22 @@
                         <a href="contacts.php">контакти</a>
                     </li>
                     <li>
-                        <a href="cards.php">cards</a>
+                        <a href="cards.php">Мої картки</a>
                     </li>
                     <li>
-                        <a href="product.php">products</a>
+                        <a href="product.php">Продукти</a>
                     </li>
                     <li>
-                        <a href="services.php">services</a>
+                        <a href="services.php">Сервіси</a>
                     </li>
-                    <li>
-                        <a href="log_in.php">log in/out</a>
-                    </li>
-                    <?php if(($_COOKIE['user'] ?? '') === ''): ?>
-                     <li> <?php else:?>
+                    <li> <?php if(($_COOKIE['user'] ?? '') === ''):
+                          else:?>
                         <a href="log_in.php">
                             Вітаємо, <?=$_COOKIE['user']?></a>
                          <?php endif;?>
+                    </li>
+                    <li>
+                        <a href="log_in.php">Вхід/Вихід</a>
                     </li>
                 </ul>
             </div>
