@@ -1,6 +1,6 @@
 <div class="container">
 <footer>
-    Все права защищены &copy; 2023
+    Усі права захищені &copy; 2023
 </footer>
 </div>
 </body>

@@ -19,7 +19,7 @@ require('parts/menu.php');
                     </form>
         </div>
                 <?php else:?>
-                <p>Привет <?=$_COOKIE['user']?>. чтобы выйти нажмите <a href="reg_auth/exit.php">здесь</a>.</p>
+                <p>Вітаємо <u><?=$_COOKIE['user']?></u>. Щоб вийти натисніть <a href="reg_auth/exit.php">тут</a>.</p>
                 <?php endif;?>
     </div>
 </div>
