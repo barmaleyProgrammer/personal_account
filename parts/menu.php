@@ -10,9 +10,6 @@
                         <a href="about.php">Про нас</a>
                     </li>
                     <li>
-                        <a href="contacts.php">контакти</a>
-                    </li>
-                    <li>
                         <a href="cards.php">Мої картки</a>
                     </li>
                     <li>

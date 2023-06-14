@@ -18,7 +18,7 @@ require "parts/menu.php";
                 <input type="text" class="form-control" name="name" id="name" placeholder="введіть имʼя"><br>
                 <input type="text" class="form-control" name="card" id="card" placeholder="введіть номер картки"><br>
                 <input type="password" class="form-control" name="pass" id="pass" placeholder="введіть пароль"><br>
-                <button class="btn btn-success" type="submit">зеєструватися</button>
+                <button class="btn btn-success" type="submit">зареєструватися</button>
             </form>
         </div>
     </div>
