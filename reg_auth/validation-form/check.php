@@ -36,30 +36,5 @@ require('../db.php');
 $mysql = mysqli_query( $conn,"INSERT INTO users (login, name, pass) VALUES ('$login', '$name', '$pass')");
 $userid = mysqli_insert_id($conn);
 $mysql = mysqli_query( $conn,"INSERT INTO cards (user_id, card) VALUES ('$userid', '$card')");
-//header('location: ../personal_account/index.php');
-//$sql= "INSERT INTO users (login,name,pass) VALUES ('".$_POST['login']."','".$_POST['name']."','".$_POST['pass']."')";
-//$sql= "INSERT INTO users (login,name,pass) VALUES ('".$_POST['login']."','".$_POST['name']."','".$_POST['pass']."')";
-//require('../../index.php');
 header('location: ../../log_in.php');
-//echo ('tttt');
-
-
-//$result = mysqli_query(
-  //  mysql: $conn,
-  //  query: $sql
-//);
-
-//header('location: ./index.php');
-//
-//$result = mysqli_query(
-   // mysql: $conn,
-    //query: 'SELECT name FROM dict WHERE name LIKE \'%x\' ORDER BY name DESC;'
-//);
-
-
-//$result = mysqli_query($conn, "INSERT INTO users (login, pass, name)
-//    VALUES('$login','$pass','$name')");
-//$result->close();
-//while ($row = mysqli_fetch_assoc($result)) {
-//    echo $row['name'].'<br>'."\n";
 ?>
