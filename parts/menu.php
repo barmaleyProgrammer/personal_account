@@ -21,7 +21,7 @@
                     <li> <?php if(($_COOKIE['user'] ?? '') === ''):
                           else:?>
                         <a href="log_in.php">
-                            Вітаємо, <?=$_COOKIE['user']?></a>
+                            Вітаємо, <i><?=$_COOKIE['user']?></i></a>
                          <?php endif;?>
                     </li>
                     <li>

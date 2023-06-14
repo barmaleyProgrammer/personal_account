@@ -1,6 +1,9 @@
 table {
     width: 100%;
     text-align: center;
+    border-collapse: separate;
+    border-spacing: 3px;
+
 }
 table, th, td {
     border: 1px solid black;
