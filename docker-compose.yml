@@ -1,0 +1,44 @@
+version: '3.2'
+
+services:
+
+  app:
+    image: 'php:8.2-apache'
+    restart: unless-stopped
+    ports:
+      - '9000:80/tcp'
+    volumes:
+      - './:/var/www/html'
+    depends_on:
+      - db
+    links:
+      - db
+    env_file:
+      - .env
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  db:
+    image: 'mariadb:10.3.35'
+    restart: unless-stopped
+    ports:
+      - '3306:3306/tcp'
+    volumes:
+      - 'db:/var/lib/mysql'
+      - './barmaley.sql:/docker-entrypoint-initdb.d/dump.sql:ro'
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_DATABASE: '${DB_NAME}'
+      MYSQL_USER: '${DB_USER}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  db:

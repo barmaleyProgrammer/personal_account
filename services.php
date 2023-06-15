@@ -1,10 +1,10 @@
 <?php
 $title = "services";
-require "parts/header.php";
-require "parts/menu.php";
-require "api.php";
+require('parts/header.php');
+require('api.php');
+$services = seller('service');
 ?>
-    <div class="container">
+<div class="container">
     <h1>Services</h1>
     <div class="table">
         <table>
@@ -13,21 +13,15 @@ require "api.php";
                 <th>код продукта</th>
                 <th>кількість</th>
             </tr>
-            <?php
-            $services = seller('service/');
-
-            foreach ($services['data'] as $key=>$value) { ?>
-                <tr>
-                    <td> <?= $value['name'] ?></td>
-                    <td> <?= $value['srv_id'] ?></td>
-                    <td> <?= $value['wallet_price'] ?></td>
-                </tr>
-
-            <?php  }?>
+            <?php foreach ($services['data'] as $key=>$value) { ?>
+            <tr>
+                <td><?= $value['name']; ?></td>
+                <td><?= $value['srv_id']; ?></td>
+                <td><?= $value['wallet_price']; ?></td>
+            </tr>
+            <?php } ?>
         </table>
-</div>
     </div>
 </div>
 <?php
-require "parts/footer.php";
-?>
+require('parts/footer.php');

@@ -1,6 +1,6 @@
 <?php
 require('reg_auth/db.php');
-
+global $conn;
 
 $login = $_COOKIE['user'];
 $cardid = $_GET['cardid'];
@@ -9,4 +9,3 @@ $userid = $result->fetch_column(0);
 mysqli_query( $conn,"DELETE FROM cards WHERE id = '$cardid' AND user_id = '$userid' ");
 
 header('location: cards.php');
-?>

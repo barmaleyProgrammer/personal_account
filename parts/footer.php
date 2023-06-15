@@ -1,7 +1,7 @@
 <div class="container">
-<footer>
-    Усі права захищені &copy; 2023
-</footer>
+    <footer>
+        Усі права захищені &copy; <?= date('Y'); ?>
+    </footer>
 </div>
 </body>
 </html>

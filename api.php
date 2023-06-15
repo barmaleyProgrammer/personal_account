@@ -1,7 +1,7 @@
 <?php
-function seller(string $path = 'product/'): array
+function seller(string $path = 'product'): array
 {
-    $ch = curl_init('https://hub2-box-asop.gerc.ua/api/v1/seller/'.$path);
+    $ch = curl_init('https://hub2-box-asop.gerc.ua/api/v1/seller/'.$path.'/');
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json; charset=utf-8',
         'Authorization: Token 3f178260cd89da0f8b2158115d7fbf1b373f0093'
@@ -11,7 +11,6 @@ function seller(string $path = 'product/'): array
     curl_setopt($ch, CURLOPT_HEADER, false);
     $res = curl_exec($ch);
     curl_close($ch);
-    $data = json_decode($res, 1);
 
-    return $data;
+    return json_decode($res, 1, 512, JSON_THROW_ON_ERROR);
 }
