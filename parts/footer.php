@@ -1,6 +1,6 @@
 <div class="container">
     <footer>
-        Усі права захищені &copy; <?= date('Y'); ?>test
+        Усі права захищені &copy; <?= date('Y'); ?>
     </footer>
 </div>
 </body>
