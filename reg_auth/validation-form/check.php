@@ -1,7 +1,6 @@
 <?php
 $login = filter_var(trim($_POST['login']));
 $name = filter_var(trim($_POST['name']));
-$card = filter_var(trim($_POST['card']));
 $pass = filter_var(trim($_POST['pass']));
 $error = '';
 
@@ -25,5 +24,5 @@ global $conn;
 
 $mysql = mysqli_query( $conn,"INSERT INTO users (login,name,pass) VALUES ('$login','$name','$pass')");
 $userid = mysqli_insert_id($conn);
-$mysql = mysqli_query( $conn,"INSERT INTO cards (user_id,card) VALUES ('$userid','$card')");
+//$mysql = mysqli_query( $conn,"INSERT INTO cards (user_id) VALUES ('$userid')");
 header('location: ./../../log_in.php');
