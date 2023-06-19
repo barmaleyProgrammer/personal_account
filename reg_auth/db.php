@@ -1,6 +1,6 @@
 <?php
 if (!getenv('DB_HOST')) {
-    $envs = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/.env', false, INI_SCANNER_TYPED);
+    $envs = parse_ini_file(dirname(__FILE__).'/../.env', false, INI_SCANNER_TYPED);
     foreach ($envs as $key => $value) {
         putenv("$key=$value");
     }
