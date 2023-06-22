@@ -17,7 +17,7 @@ function seller(string $path = 'product'): array
 
 function room(string $path = ''): array
 {
-    $ch = curl_init('https://hub2-box-asop.gerc.ua/api/v1/room/'.$path);
+    $ch = curl_init('https://rep2-box-asop.gerc.ua/api/v1/room/'.$path);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Content-Type: application/json; charset=utf-8',
         'Authorization: Token a98851dd7e7a2c6f5fb9bd6e9e25a2b8b7bb87b6'

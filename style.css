@@ -3,7 +3,9 @@ html {
     padding: 0;
     height: 100vh;
 }
-
+p {
+    width: 500px;
+}
 table {
     width: 100%;
     text-align: center;

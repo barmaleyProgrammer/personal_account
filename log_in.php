@@ -18,10 +18,13 @@ $exit = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cu
                 <button class="btn btn-success" type="submit">Авторизуватися</button>
             </form>
         </div>
-    <?php else: ?>
-        <p>Вітаємо <u><?= $_COOKIE['user']; ?></u>. Щоб вийти натисніть <a href="reg_auth/exit.php"><?= $exit; ?></a>.</p>
-    <?php endif ?>
+            <div class="exit">
+            <?php else: ?>
+                <p>Вітаємо <u><?= $_COOKIE['user']; ?></u>. Щоб вийти натисніть <a href="reg_auth/exit.php"><?= $exit; ?></a>.</p>
+            <?php endif ?>
+            </div>
     </div>
 </div>
 <?php
 require('parts/footer.php');
+
