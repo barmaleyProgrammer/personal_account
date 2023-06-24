@@ -17,18 +17,3 @@ require('parts/header.php');
 </div>
 <?php
 require('parts/footer.php');
-
-//$matrix = [
-//    [4, 6, 7],
-//    [5, 7],
-//    [1, "9", 77],
-//];
-//$matrix[0][1] = 4;
-//    echo $matrix[0][1].'<br>';
-//$list = [
-//    '9'=>50,
-//    "name"=>"Alex",
-//    "ttt" => "uyrt"
-//];
-//$list["name"] = "bob";
-//var_dump($list).'<br>';
