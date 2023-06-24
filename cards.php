@@ -28,66 +28,105 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
 <div class="container">
     <div class="col-12">
         <div id="row">
-            <div class="accordion mt-5 mb-5" id="accordionExample">
+            <?php foreach ($cards as $key => $card) { ?>
+            <div class="accordion mt-5 mb-5" id="accordionExample<?= $key; ?>">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                           <h3 class="text-center">меню</h3>
+                           <h3 class="text-center"><?= $card['card_num']; ?></h3>
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample<?= $key; ?>">
                         <div class="accordion-body">
-                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample<?= $key; ?>">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Загальна інформація</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Перелік поповнень</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Перелік поїздок</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">список продуктів</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                        <table>
+                                            <tr>
+                                                <th>Баланс</th>
+                                                <th>Поповнити картку</th>
+                                                <th>статус картки</th>
+                                                <th>Видалити картку</th>
+                                            </tr>
+                                            <tr>
+                                                <td>56грн</td>
+                                                <td></td>
+                                                <td>заблокована/заархівірована</td>
+                                                <td>Х</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                        <table>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>Назва агента</th>
+                                                <th>Продукт</th>
+                                                <th>Сума</th>
+                                                <th>Створено</th>
+                                            </tr>
+                                            <tr>
+                                                <td>33</td>
+                                                <td>Privat</td>
+                                                <td>ПОПОВНЕННЯ ТРАНСПОРТНОГО ГАМАНЦЯ</td>
+                                                <td>44</td>
+                                                <td>2021-10-01T11:28:17.313609+03:00</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                                        <table>
+                                            <tr>
+                                                <th>дата поїздки</th>
+                                                <th>маршрут</th>
+                                                <th>сервіс</th>
+                                                <th>борт номер</th>
+                                            </tr>
+                                            <tr>
+                                                <td>2021-10-07T12:55:34+03:00</td>
+                                                <td>№ 6</td>
+                                                <td>ПОЇЗДКА НА ТРОЛЕЙБУСІ</td>
+                                                <td>4455</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+                                        <table>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>код продукта</th>
+                                                <th>назва продукта</th>
+                                                <th>вартість</th>
+                                            </tr>
+                                            <tr>
+                                                <td>а</td>
+                                                <td>аап-5отот</td>
+                                                <td>Две  поездки на автобусе для студента</td>
+                                                <td>5 грн</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                            <table>
-                                <tr>
-                                    <th>номер картки</th>
-                                    <th>Баланс</th>
-                                    <th>список продуктів на карті</th>
-                                    <th>Поповнити картку</th>
-                                    <th>перелік поїздок</th>
-                                    <th>перелік поповнень</th>
-                                    <th>статус картки</th>
-                                    <th>Видалити картку</th>
-                                </tr>
-                                <tr>
-                                    <td>xxxxxx</td>
-                                    <td>грн</td>
-                                    <td></td>
-                                    <td>ввести сумму</td>
-                                    <td><details>
-                                            <summary>подивитися</summary>
-                                            <pre>
-    2021-10-01T14:09:39+03:00,
-    "route": "№ 3",
-    "ПОЇЗДКА НА ТРОЛЕЙБУСІ",
-    "bort_num": "4455"
-
-    2021-10-01T14:52:49+03:00,
-    "route": "№ 3",
-    "ПОЇЗДКА НА ТРОЛЕЙБУСІ",
-    "bort_num": "4455"
-                                            </pre>
-                                        </details>
-                                    </td>
-                                    <td><details>
-                                            <summary>подивитися</summary>
-                                            <pre>
-    "agent_name": "Продавец QR",
-    "ПОПОВНЕННЯ ТРАНСПОРТНОГО ГАМАНЦЯ",
-    "summa": "16.00",
-    2021-10-01T11:28:17.313609+03:00"
-                                            </pre>
-                                        </details></td>
-                                    <td>заблокована/заархівірована</td>
-                                    <td>xxxxxx</td>
-                                </tr>
-                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <?php } ?>
 
 
             <form action="add_card.php" method="post">
