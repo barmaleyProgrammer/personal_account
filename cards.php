@@ -6,9 +6,9 @@ require('api.php');
 global $conn;
 
 
-//if ($_COOKIE['user'] ?? '') {
-//    exit('для просмотру вмісту будь ласка <a href="log_in.php" target="_blank">увійдіть</a> або <a href="https://ua.korrespondent.net/" target="_blank">зареєструйтеся</a>');
-//}
+if (!array_key_exists('user', $_COOKIE) || empty($_COOKIE['user'])) {
+ exit('для просмотру вмісту будь ласка <a href="log_in.php">увійдіть</a> або <a href="index.php">зареєструйтеся</a>');
+}
 
 
 $login = $_COOKIE['user'];
@@ -26,29 +26,68 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
 <div class="container">
     <div class="col-12">
         <div id="row">
-            <h2 class="text-center text-uppercase color2 mb-5">Картки</h2>
-            <div class="table">
-                <table>
-                    <tr>
-                        <th>nfc_id</th>
-                        <th>card_num</th>
-                        <th>Баланс</th>
-                        <th>blocked</th>
-                        <th>archived</th>
-                        <th>Видалити картку</th>
-                    </tr>
-                    <?php foreach($cards as $card) { ?>
-                    <tr>
-                        <td><?= $card['nfc_id'] ?></td>
-                        <td><?= $card['card_num'] ?></td>
-                        <td><?= $card['balance'] ?> грн</td>
-                        <td><?= $card['blocked'] ?></td>
-                        <td><?= $card['archived'] ?></td>
-                        <td class="text-center"><a href="deleted_cards.php?cardid=<?= $card['nfc_id']; ?>"><?= $del; ?></a></td>
-                    </tr>
-                    <?php  }?>
-                </table>
+            <div class="accordion mt-5 mb-5" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                           <h3 class="text-center">меню</h3>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>номер картки</th>
+                                    <th>Баланс</th>
+                                    <th>список продуктів на карті</th>
+                                    <th>Поповнити картку</th>
+                                    <th>перелік поїздок</th>
+                                    <th>перелік поповнень</th>
+                                    <th>статус картки</th>
+                                    <th>Видалити картку</th>
+                                </tr>
+                                <tr>
+                                    <td>xxxxxx</td>
+                                    <td>грн</td>
+                                    <td></td>
+                                    <td>ввести сумму</td>
+                                    <td><details>
+                                            <summary>подивитися</summary>
+                                            <pre>
+    2021-10-01T14:09:39+03:00,
+    "route": "№ 3",
+    "ПОЇЗДКА НА ТРОЛЕЙБУСІ",
+    "bort_num": "4455"
+
+    2021-10-01T14:52:49+03:00,
+    "route": "№ 3",
+    "ПОЇЗДКА НА ТРОЛЕЙБУСІ",
+    "bort_num": "4455"
+                                            </pre>
+                                        </details>
+                                    </td>
+                                    <td><details>
+                                            <summary>подивитися</summary>
+                                            <pre>
+    "agent_name": "Продавец QR",
+    "ПОПОВНЕННЯ ТРАНСПОРТНОГО ГАМАНЦЯ",
+    "summa": "16.00",
+    2021-10-01T11:28:17.313609+03:00"
+                                            </pre>
+                                        </details></td>
+                                    <td>заблокована/заархівірована</td>
+                                    <td>xxxxxx</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+
             <form action="add_card.php" method="post">
                 <input type="text" class="form-control" name="card" id="card" placeholder="введіть номер картки"><br>
                 <input type="text" class="form-control" name="pin" id="pin" placeholder="введіть pin"><br>
@@ -59,3 +98,4 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
 </div>
 <?php
 require('parts/footer.php');
+
