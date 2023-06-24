@@ -22,6 +22,8 @@ foreach ($cards as $key => $card) {
     $cards[$key]['balance'] = array_sum($balance_nums);
 
     $cards[$key]['payments'] = room('card/'.$card['card_num'].'/payment/');
+    $cards[$key]['validations'] = room('card/'.$card['card_num'].'/validation/');
+    $cards[$key]['products'] = seller('product/?card_num='.$card['card_num']);
 }
 $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16"><path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/></svg>';
 ?>
@@ -29,32 +31,32 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
     <div class="col-12">
         <div id="row">
             <?php foreach ($cards as $key => $card) { ?>
-            <div class="accordion mt-5 mb-5" id="accordionExample<?= $key; ?>">
+            <div class="accordion mt-5 mb-5 accordionExample" id="accordionExample<?= $key; ?>">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<?= $key; ?>" aria-expanded="true" aria-controls="collapseOne<?= $key; ?>">
                            <h3 class="text-center"><?= $card['card_num']; ?></h3>
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample<?= $key; ?>">
+                    <div id="collapseOne<?= $key; ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample<?= $key; ?>">
                         <div class="accordion-body">
-                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample<?= $key; ?>">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <div id="collapseOne<?= $key; ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample<?= $key; ?>">
+                                <ul class="nav nav-tabs" id="myTab<?= $key; ?>" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Загальна інформація</button>
+                                        <button class="nav-link active" id="home-tab<?= $key; ?>" data-bs-toggle="tab" data-bs-target="#home-tab-pane<?= $key; ?>" type="button" role="tab" aria-controls="home-tab-pane<?= $key; ?>" aria-selected="true">Загальна інформація</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Перелік поповнень</button>
+                                        <button class="nav-link" id="profile-tab<?= $key; ?>" data-bs-toggle="tab" data-bs-target="#profile-tab-pane<?= $key; ?>" type="button" role="tab" aria-controls="profile-tab-pane<?= $key; ?>" aria-selected="false">Перелік поповнень</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Перелік поїздок</button>
+                                        <button class="nav-link" id="contact-tab<?= $key; ?>" data-bs-toggle="tab" data-bs-target="#contact-tab-pane<?= $key; ?>" type="button" role="tab" aria-controls="contact-tab-pane<?= $key; ?>" aria-selected="false">Перелік поїздок</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false">список продуктів</button>
+                                        <button class="nav-link" id="disabled-tab<?= $key; ?>" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane<?= $key; ?>" type="button" role="tab" aria-controls="disabled-tab-pane<?= $key; ?>" aria-selected="false">список продуктів</button>
                                     </li>
                                 </ul>
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                <div class="tab-content" id="myTabContent<?= $key; ?>">
+                                    <div class="tab-pane fade show active" id="home-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="home-tab<?= $key; ?>" tabindex="0">
                                         <table>
                                             <tr>
                                                 <th>Баланс</th>
@@ -63,14 +65,14 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                                 <th>Видалити картку</th>
                                             </tr>
                                             <tr>
-                                                <td>56грн</td>
+                                                <td><?= $card['balance'] ?>грн</td>
                                                 <td></td>
-                                                <td>заблокована/заархівірована</td>
+                                                <td><?= $card['blocked'] ? 'заблокована' : 'активна'; ?>/<?= $card['archived'] ? 'заархівірована' : 'активна'; ?></td>
                                                 <td>Х</td>
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                    <div class="tab-pane fade" id="profile-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="profile-tab<?= $key; ?>" tabindex="0">
                                         <table>
                                             <tr>
                                                 <th>id</th>
@@ -79,16 +81,18 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                                 <th>Сума</th>
                                                 <th>Створено</th>
                                             </tr>
+                                            <?php foreach ($card['payments'] as $payment) { ?>
                                             <tr>
-                                                <td>33</td>
-                                                <td>Privat</td>
-                                                <td>ПОПОВНЕННЯ ТРАНСПОРТНОГО ГАМАНЦЯ</td>
-                                                <td>44</td>
-                                                <td>2021-10-01T11:28:17.313609+03:00</td>
+                                                <td><?= $payment['id']; ?></td>
+                                                <td><?= $payment['agent_name']; ?></td>
+                                                <td><?= $payment['product_name']; ?></td>
+                                                <td><?= $payment['summa']; ?></td>
+                                                <td><?= $payment['received_at']; ?></td>
                                             </tr>
+                                            <?php } ?>
                                         </table>
                                     </div>
-                                    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                                    <div class="tab-pane fade" id="contact-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="contact-tab<?= $key; ?>" tabindex="0">
                                         <table>
                                             <tr>
                                                 <th>дата поїздки</th>
@@ -96,15 +100,17 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                                 <th>сервіс</th>
                                                 <th>борт номер</th>
                                             </tr>
+                                            <?php foreach ($card['validations'] as $validation) { ?>
                                             <tr>
-                                                <td>2021-10-07T12:55:34+03:00</td>
-                                                <td>№ 6</td>
-                                                <td>ПОЇЗДКА НА ТРОЛЕЙБУСІ</td>
-                                                <td>4455</td>
+                                                <td><?= $validation['timestamp']; ?></td>
+                                                <td><?= $validation['route']; ?></td>
+                                                <td><?= $validation['service']; ?></td>
+                                                <td><?= $validation['bort_num']; ?></td>
                                             </tr>
+                                            <?php } ?>
                                         </table>
                                     </div>
-                                    <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+                                    <div class="tab-pane fade" id="disabled-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="disabled-tab<?= $key; ?>" tabindex="0">
                                         <table>
                                             <tr>
                                                 <th>id</th>
@@ -112,12 +118,14 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                                 <th>назва продукта</th>
                                                 <th>вартість</th>
                                             </tr>
+                                            <?php foreach ($card['products']['data'] as $product) { ?>
                                             <tr>
-                                                <td>а</td>
-                                                <td>аап-5отот</td>
-                                                <td>Две  поездки на автобусе для студента</td>
-                                                <td>5 грн</td>
+                                                <td><?= $product['id']; ?></td>
+                                                <td><?= $product['product_code']; ?></td>
+                                                <td><?= $product['name']; ?></td>
+                                                <td><?= $product['price']; ?></td>
                                             </tr>
+                                            <?php } ?>
                                         </table>
                                     </div>
                                 </div>
