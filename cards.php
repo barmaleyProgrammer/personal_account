@@ -61,13 +61,15 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             <tr>
                                                 <th>Баланс</th>
                                                 <th>Поповнити картку</th>
-                                                <th>статус картки</th>
+                                                <th>заблокована</th>
+                                                <th>заархівована</th>
                                                 <th>Видалити картку</th>
                                             </tr>
                                             <tr>
                                                 <td><?= $card['balance'] ?>грн</td>
                                                 <td></td>
-                                                <td><?= $card['blocked'] ? 'заблокована' : 'активна'; ?>/<?= $card['archived'] ? 'заархівірована' : 'незаархівірована'; ?></td>
+                                                <td><?= $card['blocked'] ? 'так' : 'ні'; ?></td>
+                                                <td><?= $card['archived'] ? 'так' : 'ні'; ?></td>
                                                 <td>Х</td>
                                             </tr>
                                         </table>
