@@ -35,7 +35,7 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<?= $key; ?>" aria-expanded="true" aria-controls="collapseOne<?= $key; ?>">
-                           <h3 class="text-center">Номер картки: <?= $card['card_num']; ?></h3>
+                           <h6 class="text-center">Номер картки: <?= $card['card_num']; ?></h6>
                         </button>
                     </h2>
                     <div id="collapseOne<?= $key; ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample<?= $key; ?>">
@@ -67,7 +67,7 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             <tr>
                                                 <td><?= $card['balance'] ?>грн</td>
                                                 <td></td>
-                                                <td><?= $card['blocked'] ? 'заблокована' : 'активна'; ?>/<?= $card['archived'] ? 'заархівірована' : 'активна'; ?></td>
+                                                <td><?= $card['blocked'] ? 'заблокована' : 'активна'; ?>/<?= $card['archived'] ? 'заархівірована' : 'незаархівірована'; ?></td>
                                                 <td>Х</td>
                                             </tr>
                                         </table>
