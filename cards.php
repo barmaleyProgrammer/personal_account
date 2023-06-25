@@ -137,13 +137,13 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                 </div>
             </div>
             <?php } ?>
-
-
+            <div class="mt-5">
             <form action="add_card.php" method="post">
                 <input type="text" class="form-control" name="card" id="card" placeholder="введіть номер картки"><br>
                 <input type="text" class="form-control" name="pin" id="pin" placeholder="введіть pin"><br>
                 <button class="btn btn-success" type="submit">додати картку</button>
             </form>
+            </div>
         </div>
     </div>
 </div>
