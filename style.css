@@ -41,8 +41,8 @@ li{
 }
 .accordionExample {
 
-    /*width: max-content;*/
-    width: 1000px;
+    width: max-content;
+    /*width: 1200px;*/
 }
 pre {
     width: 100%;
