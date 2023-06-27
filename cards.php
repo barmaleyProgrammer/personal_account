@@ -70,7 +70,7 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             <tr>
                                                 <td><?= $card['balance'] ?>грн</td>
 <!--                                                <td>--><?php //= $card['nfc_id'] ?><!--</td>-->
-                                                <td> <a href="block_card.php?block=<?= $card['blocked'] ? 'false' : 'true'; ?>&card=<?= $card['card_num']; ?>" title="<?= $card['blocked'] ? 'роздлокувати' : 'блокувати'; ?>"><?= $card['blocked'] ? 'так' : 'ні'; ?></a></td>
+                                                <td> <a href="block_card.php?block=<?= $card['blocked'] ? 'false' : 'true'; ?>&card=<?= $card['card_num']; ?>" title="<?= $card['blocked'] ? 'розблокувати' : 'блокувати'; ?>"><?= $card['blocked'] ? 'так' : 'ні'; ?></a></td>
                                                 <td><?= $card['archived'] ? 'так' : 'ні'; ?></td>
                                             </tr>
                                         </table>
