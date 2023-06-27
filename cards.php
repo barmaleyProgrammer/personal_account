@@ -14,7 +14,7 @@ if (!array_key_exists('user', $_COOKIE) || empty($_COOKIE['user'])) {
 $login = $_COOKIE['user'];
 $result = mysqli_query($conn,"SELECT id FROM users WHERE login = '$login' LIMIT 1");
 $userid = $result->fetch_column(0);
-$cards = [];
+$products = seller();
 $cards = room('card/?room='.$userid);
 foreach ($cards as $key => $card) {
     $balance_res = room('card/'.$card['card_num'].'/balance/');
@@ -54,23 +54,24 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="disabled-tab<?= $key; ?>" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane<?= $key; ?>" type="button" role="tab" aria-controls="disabled-tab-pane<?= $key; ?>" aria-selected="false">список продуктів</button>
                                     </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="charge-tab<?= $key; ?>" data-bs-toggle="tab" data-bs-target="#charge-tab-pane<?= $key; ?>" type="button" role="tab" aria-controls="charge-tab-pane<?= $key; ?>" aria-selected="false">поповнити</button>
+                                    </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent<?= $key; ?>">
                                     <div class="tab-pane fade show active" id="home-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="home-tab<?= $key; ?>" tabindex="0">
                                         <table>
                                             <tr>
                                                 <th>Баланс</th>
-                                                <th>Поповнити картку</th>
+                                                <th>NFC</th>
                                                 <th>заблокована</th>
                                                 <th>заархівована</th>
-                                                <th>Видалити картку</th>
                                             </tr>
                                             <tr>
                                                 <td><?= $card['balance'] ?>грн</td>
-                                                <td></td>
-                                                <td><?= $card['blocked'] ? 'так' : 'ні'; ?></td>
+                                                <td><?= $card['nfc_id'] ?></td>
+                                                <td> <a href="block_card.php?block=<?= $card['blocked'] ? 'false' : 'true'; ?>&card=<?= $card['card_num']; ?>" title="<?= $card['blocked'] ? 'роздлокувати' : 'блокувати'; ?>"><?= $card['blocked'] ? 'так' : 'ні'; ?></a></td>
                                                 <td><?= $card['archived'] ? 'так' : 'ні'; ?></td>
-                                                <td>Х</td>
                                             </tr>
                                         </table>
                                     </div>
@@ -129,6 +130,20 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             </tr>
                                             <?php } ?>
                                         </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="charge-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="charge-tab<?= $key; ?>" tabindex="0">
+                                        <form action="card_charge.php" method="post">
+                                            <input type="hidden" name="card_code" value="<?= $card['nfc_id'] ?>"><br>
+                                            <input type="number" class="form-control" name="summa" placeholder="введіть суму" required><br>
+                                            <select class="form-control" name="product_code" required>
+                                                <option value="">виберiть продукт</option>
+                                                <?php foreach ($card['products']['data'] as $product) { ?>
+                                                    <option value="<?= $product['product_code']; ?>"><?= $product['name']; ?></option>
+                                                <?php } ?>
+                                            </select><br>
+
+                                            <button class="btn btn-success" type="submit">поповнити</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
