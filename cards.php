@@ -136,7 +136,7 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             <input type="hidden" name="card_code" value="<?= $card['nfc_id'] ?>"><br>
                                             <input type="number" class="form-control" name="summa" placeholder="введіть суму" required><br>
                                             <select class="form-control" name="product_code" required>
-                                                <option value="">виберiть продукт</option>
+                                                <option value="">оберiть продукт</option>
                                                 <?php foreach ($card['products']['data'] as $product) { ?>
                                                     <option value="<?= $product['product_code']; ?>"><?= $product['name']; ?></option>
                                                 <?php } ?>
