@@ -41,10 +41,13 @@ li{
 }
 .accordionExample {
 
-    width: max-content;
-    /*width: 1200px;*/
+    /*width: max-content;*/
+    width: 1200px;
 }
 pre {
     width: 100%;
     text-align: center;
 }
+/*.lock {*/
+/*    display: none;*/
+/*}*/

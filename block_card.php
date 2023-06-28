@@ -11,4 +11,5 @@ $data = [
 
 $res = room('block-event/', $data);
 
-header('location: cards.php');
+header('Content-Type: application/json; charset=utf-8');
+echo json_encode($res);

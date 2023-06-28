@@ -70,7 +70,15 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             <tr>
                                                 <td><?= $card['balance'] ?>грн</td>
 <!--                                                <td>--><?php //= $card['nfc_id'] ?><!--</td>-->
-                                                <td> <a href="block_card.php?block=<?= $card['blocked'] ? 'false' : 'true'; ?>&card=<?= $card['card_num']; ?>" title="<?= $card['blocked'] ? 'розблокувати' : 'блокувати'; ?>"><?= $card['blocked'] ? 'так' : 'ні'; ?></a></td>
+                                                <!-- td><a href="block_card.php?block=<?= $card['blocked'] ? 'false' : 'true'; ?>&card=<?= $card['card_num']; ?>" title="<?= $card['blocked'] ? 'розблокувати' : 'блокувати'; ?>"><?= $card['blocked'] ? 'так' : 'ні'; ?></a></td -->
+                                                <td><a
+                                                        href="javascript:void(0)"
+                                                        onclick="blockcard(event)"
+                                                        data-blocked="<?= $card['blocked'] ? 'false' : 'true'; ?>"
+                                                        data-card-num="<?= $card['card_num']; ?>"
+                                                        title="<?= $card['blocked'] ? 'розблокувати' : 'блокувати'; ?>">
+                                                        <?= $card['blocked'] ? 'так' : 'ні'; ?>
+                                                    </a></td>
                                                 <td><?= $card['archived'] ? 'так' : 'ні'; ?></td>
                                             </tr>
                                         </table>
@@ -132,7 +140,7 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                         </table>
                                     </div>
                                     <div class="tab-pane fade" id="charge-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="charge-tab<?= $key; ?>" tabindex="0">
-                                        <form action="card_charge.php" method="post">
+                                        <form action="#" onsubmit="charge(event)" method="post">
                                             <input type="hidden" name="card_code" value="<?= $card['nfc_id'] ?>"><br>
                                             <input type="number" class="form-control" name="summa" placeholder="введіть суму" required><br>
                                             <select class="form-control" name="product_code" required>

@@ -13,5 +13,5 @@ $userName = $result->fetch_column(0);
 if(!$userName) {
     exit('користувача не знайдено<br /><a href="./../../log_in.php">Перейти обратно</a>');
 }
-setcookie('user', $userName, time() + 3600, "/");
+setcookie('user', $userName, time() + 360000, "/");
 header('location: ./../../cards.php');
