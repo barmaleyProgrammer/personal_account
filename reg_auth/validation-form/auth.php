@@ -14,4 +14,4 @@ if(!$userName) {
     exit('користувача не знайдено<br /><a href="./../../log_in.php">Перейти обратно</a>');
 }
 setcookie('user', $userName, time() + 3600, "/");
-header('location: ./../../about.php');
+header('location: ./../../cards.php');
