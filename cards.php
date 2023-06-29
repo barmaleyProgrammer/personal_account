@@ -7,11 +7,13 @@ global $conn;
 
 
 if (!array_key_exists('user', $_COOKIE) || empty($_COOKIE['user'])) {
- exit('для просмотру вмісту будь ласка <a href="log_in.php">увійдіть</a> або <a href="index.php">зареєструйтеся</a>');
+    exit('для просмотру вмісту будь ласка <a href="log_in.php">увійдіть</a> або <a href="index.php">зареєструйтеся</a>');
 }
 
 
 $login = $_COOKIE['user'];
+$card_num = $_GET['card_num'] ?? '';
+
 $result = mysqli_query($conn,"SELECT id FROM users WHERE login = '$login' LIMIT 1");
 $userid = $result->fetch_column(0);
 $products = seller();
@@ -30,17 +32,16 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
 <div class="container">
     <div class="col-12">
         <div id="row">
-            <?php foreach ($cards as $key => $card) { ?>
-            <div class="accordion mt-5 mb-5 accordionExample" id="accordionExample<?= $key; ?>">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<?= $key; ?>" aria-expanded="true" aria-controls="collapseOne<?= $key; ?>">
-                           <h6 class="text-center">Номер картки: <?= $card['card_num']; ?></h6>
-                        </button>
-                    </h2>
-                    <div id="collapseOne<?= $key; ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample<?= $key; ?>">
-                        <div class="accordion-body">
-                            <div id="collapseOne<?= $key; ?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample<?= $key; ?>">
+            <div class="accordion mt-5 mb-5 accordionExample" id="accordionExample">
+                <?php foreach ($cards as $key => $card) { ?>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button<?= ($card_num === $card['card_num'] ? '' : ' collapsed'); ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $key; ?>" aria-expanded="<?= ($card_num === $card['card_num'] ? 'true' : 'false'); ?>" aria-controls="collapse<?= $key; ?>">
+                               Номер картки: <?= $card['card_num']; ?>
+                            </button>
+                        </h2>
+                        <div id="collapse<?= $key; ?>" class="accordion-collapse collapse<?= ($card_num === $card['card_num'] ? ' show' : ''); ?>" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
                                 <ul class="nav nav-tabs" id="myTab<?= $key; ?>" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="home-tab<?= $key; ?>" data-bs-toggle="tab" data-bs-target="#home-tab-pane<?= $key; ?>" type="button" role="tab" aria-controls="home-tab-pane<?= $key; ?>" aria-selected="true">Загальна інформація</button>
@@ -59,17 +60,17 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent<?= $key; ?>">
-                                    <div class="tab-pane fade show active" id="home-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="home-tab<?= $key; ?>" tabindex="0">
+                                    <div class="tab-pane fade show active" id="home-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="home-tab<?= $key; ?>">
                                         <table>
                                             <tr>
                                                 <th>Баланс</th>
-<!--                                                <th>NFC</th>-->
+    <!--                                                <th>NFC</th>-->
                                                 <th>заблокована</th>
                                                 <th>заархівована</th>
                                             </tr>
                                             <tr>
                                                 <td><?= $card['balance'] ?>грн</td>
-<!--                                                <td>--><?php //= $card['nfc_id'] ?><!--</td>-->
+    <!--                                                <td>--><?php //= $card['nfc_id'] ?><!--</td>-->
                                                 <!-- td><a href="block_card.php?block=<?= $card['blocked'] ? 'false' : 'true'; ?>&card=<?= $card['card_num']; ?>" title="<?= $card['blocked'] ? 'розблокувати' : 'блокувати'; ?>"><?= $card['blocked'] ? 'так' : 'ні'; ?></a></td -->
                                                 <td><a
                                                         href="javascript:void(0)"
@@ -83,7 +84,7 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="tab-pane fade" id="profile-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="profile-tab<?= $key; ?>" tabindex="0">
+                                    <div class="tab-pane fade" id="profile-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="profile-tab<?= $key; ?>">
                                         <table>
                                             <tr>
                                                 <th>id</th>
@@ -103,7 +104,7 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             <?php } ?>
                                         </table>
                                     </div>
-                                    <div class="tab-pane fade" id="contact-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="contact-tab<?= $key; ?>" tabindex="0">
+                                    <div class="tab-pane fade" id="contact-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="contact-tab<?= $key; ?>">
                                         <table>
                                             <tr>
                                                 <th>дата поїздки</th>
@@ -121,7 +122,7 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             <?php } ?>
                                         </table>
                                     </div>
-                                    <div class="tab-pane fade" id="disabled-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="disabled-tab<?= $key; ?>" tabindex="0">
+                                    <div class="tab-pane fade" id="disabled-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="disabled-tab<?= $key; ?>">
                                         <table>
                                             <tr>
                                                 <th>id</th>
@@ -139,10 +140,11 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                             <?php } ?>
                                         </table>
                                     </div>
-                                    <div class="tab-pane fade" id="charge-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="charge-tab<?= $key; ?>" tabindex="0">
+                                    <div class="tab-pane fade" id="charge-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="charge-tab<?= $key; ?>">
                                         <!-- form action="#" onsubmit="charge(event)" method="post" -->
                                         <form action="card_charge.php" method="post">
-                                            <input type="hidden" name="card_code" value="<?= $card['nfc_id'] ?>"><br>
+                                            <input type="hidden" name="card_num" value="<?= $card['card_num'] ?>"><br>
+                                            <input type="hidden" name="nfc_id" value="<?= $card['nfc_id'] ?>"><br>
                                             <input type="number" class="form-control" name="summa" placeholder="введіть суму" required><br>
                                             <select class="form-control" name="product_code" required>
                                                 <option value="">оберiть продукт</option>
@@ -158,18 +160,19 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
-            <?php } ?>
+
             <div class="mt-5">
-            <form action="add_card.php" method="post">
-                <input type="text" class="form-control" name="card" id="card" placeholder="введіть номер картки"><br>
-                <input type="text" class="form-control" name="pin" id="pin" placeholder="введіть pin"><br>
-                <button class="btn btn-success" type="submit">додати картку</button>
-            </form>
+                <form action="add_card.php" method="post">
+                    <input type="text" class="form-control" name="card" id="card" placeholder="введіть номер картки"><br>
+                    <input type="text" class="form-control" name="pin" id="pin" placeholder="введіть pin"><br>
+                    <button class="btn btn-success" type="submit">додати картку</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
 <?php
 require('parts/footer.php');
