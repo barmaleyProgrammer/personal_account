@@ -140,13 +140,14 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                         </table>
                                     </div>
                                     <div class="tab-pane fade" id="charge-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="charge-tab<?= $key; ?>" tabindex="0">
-                                        <form action="#" onsubmit="charge(event)" method="post">
+                                        <!-- form action="#" onsubmit="charge(event)" method="post" -->
+                                        <form action="card_charge.php" method="post">
                                             <input type="hidden" name="card_code" value="<?= $card['nfc_id'] ?>"><br>
                                             <input type="number" class="form-control" name="summa" placeholder="введіть суму" required><br>
                                             <select class="form-control" name="product_code" required>
                                                 <option value="">оберiть продукт</option>
                                                 <?php foreach ($card['products']['data'] as $product) { ?>
-                                                    <option value="<?= $product['product_code']; ?>"><?= $product['name']; ?></option>
+                                                    <option id="product_code" value="<?= $product['product_code']; ?>"><?= $product['name']; ?></option>
                                                 <?php } ?>
                                             </select><br>
 
