@@ -51,3 +51,10 @@ pre {
 /*.lock {*/
 /*    display: none;*/
 /*}*/
+
+dialog {
+    border: 1px solid #CCC;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
