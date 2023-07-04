@@ -15,7 +15,7 @@ $exit = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cu
                     <form action="reg_auth/validation-form/auth.php" method="post">
                             <input type="text" class="form-control" name="login" id="login" placeholder="Login"><br>
                         <div class="pass">
-                            <span class="icon-pass" id="icon-pass" onclick="togglePasswordVisibility()">&#128065;</span>
+                            <span class="icon-pass" onclick="togglePasswordVisibility()">&#128065;</span>
                             <input type="password" class="form-control" name="pass" id="pass" placeholder="Password"><br>
                         </div>
                         <button class="btn btn-success" type="submit">Авторизуватися</button>
