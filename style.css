@@ -58,3 +58,13 @@ dialog {
     border-radius: 1rem;
     padding: 1.5rem;
 }
+.pass {
+    position: relative;
+}
+.icon-pass {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-30%, -90%);
+    cursor: pointer;
+}

@@ -70,3 +70,24 @@ addCardDialog.addEventListener('click', (e) => {
         e.target.close();
     }
 });
+
+// const inputPass = document.getElementById('pass');
+// const iconPass = document.getElementById('icon-pass');
+// iconPass.addEventListener('click', () =>{
+// if (inputPass.getAttribute('type') === 'password') {
+//     inputPass.setAttribute('type', 'text');
+// }else {
+//     inputPass.setAttribute('type', 'password');
+// }
+// });
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById("password");
+    const iconPass = document.getElementById("pass");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+
+    } else {
+        passwordInput.type = "password";
+    }
+}

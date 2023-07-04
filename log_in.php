@@ -10,14 +10,17 @@ $exit = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cu
 <div class="container mt-4">
     <div id="row">
     <?php if(($_COOKIE['user'] ?? '') === ''): ?>
-        <div class="col-12">
-            <h1>Авторизація</h1>
-            <form action="reg_auth/validation-form/auth.php" method="post">
-                <input type="text" class="form-control" name="login" id="login" placeholder="введите логин"><br>
-                <input type="password" class="form-control" name="pass" id="pass" placeholder="введите пароль"><br>
-                <button class="btn btn-success" type="submit">Авторизуватися</button>
-            </form>
-        </div>
+                <div class="col-12">
+                    <h1>Авторизація</h1>
+                    <form action="reg_auth/validation-form/auth.php" method="post">
+                            <input type="text" class="form-control" name="login" id="login" placeholder="Login"><br>
+                        <div class="pass">
+                            <span class="icon-pass" id="pass" onclick="togglePasswordVisibility()">&#128065;</span>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password"><br>
+                        </div>
+                        <button class="btn btn-success" type="submit">Авторизуватися</button>
+                    </form>
+                </div>
             <div class="exit">
             <?php else: ?>
                 <p>Вітаємо <u><?= $_COOKIE['user']; ?></u>. Щоб вийти натисніть <a href="reg_auth/exit.php"><?= $exit; ?></a>.</p>
