@@ -81,10 +81,10 @@ addCardDialog.addEventListener('click', (e) => {
 // }
 // });
 function togglePasswordVisibility() {
-    const passwordInput = document.getElementById("password");
-    const iconPass = document.getElementById("pass");
+    const passwordInput = document.getElementById("pass");
+    const iconPass = document.getElementById("icon-pass");
 
-    if (passwordInput.type === "password") {
+    if (passwordInput.type == "password") {
         passwordInput.type = "text";
 
     } else {
