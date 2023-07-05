@@ -2,10 +2,28 @@
 require('reg_auth/db.php');
 global $conn, $userid;
 
-$email = filter_var(trim($_POST['email']));
-$phone = filter_var(trim($_POST['phone']));
-$comment = filter_var(trim($_POST['comment']));
+$email = trim($_POST['email']);
+$phone = trim($_POST['phone']);
+$comment = trim($_POST['comment']);
 
 
-$mysql = mysqli_query( $conn,"UPDATE users SET phone='$phone', email='$email', comments='$comment' WHERE id=$userid");
+$fields = [];
+if (!empty($email)) {
+    $fields[] = 'email=\''.$email.'\'';
+}
+if (!empty($phone)) {
+    $fields[] = 'phone=\''.$phone.'\'';
+}
+if (!empty($comment)) {
+    $fields[] = 'comments=\''.$comment.'\'';
+}
+
+
+if (count($fields)) {
+    $sql = 'UPDATE users SET ';
+    $sql .= implode(', ', $fields);
+    $sql .= ' WHERE id='.$userid;
+    mysqli_query($conn, $sql);
+}
+
 header('location: ./profile.php');
