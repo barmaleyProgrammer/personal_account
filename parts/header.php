@@ -35,6 +35,9 @@
                     <a class="nav-link" href="services.php">Сервіси</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="profile.php">Profile</a>
+                </li>
+                <li class="nav-item">
                     <?php if (!empty($_COOKIE['user'] ?? '')): ?>
                         <a class="nav-link" href="log_in.php">Вітаємо, <i><?= $_COOKIE['user']; ?></i></a>
                     <?php else: ?>
