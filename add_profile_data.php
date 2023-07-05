@@ -4,7 +4,7 @@ global $conn, $userid;
 
 $email = trim($_POST['email']);
 $phone = trim($_POST['phone']);
-$comment = trim($_POST['comment']);
+$comment = trim($_POST['comments']);
 
 
 $fields = [];
@@ -25,7 +25,7 @@ if (!empty($comment)) {
 } else {
     $fields[] = 'comments=NULL';
 }
-
+//UPDATE users SET phone='$phone' WHERE id=$userid
 
 if (count($fields)) {
     $sql = 'UPDATE users SET ';

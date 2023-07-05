@@ -77,8 +77,9 @@ textarea {
     box-sizing: border-box; /* Алгоритм расчёта ширины */
     font-size: 14px; /* Размер шрифта */
 }
-#profEmail {
+.profEmail {
     background: #0082d1; /* Цвет фона */
-}#profTel {
+}
+.profTel {
     background: #FFD100; /* Цвет фона */
 }
