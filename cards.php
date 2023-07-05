@@ -1,7 +1,7 @@
 <?php
 $title = "картки";
 require('parts/header.php');
-require('reg_auth/db.php');
+//require('reg_auth/db.php');
 require('api.php');
 global $conn;
 
