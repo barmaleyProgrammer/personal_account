@@ -3,7 +3,7 @@ $title = "картки";
 require('parts/header.php');
 require('reg_auth/db.php');
 require('api.php');
-global $conn;
+global $conn, $userid;
 
 
 if (!array_key_exists('user', $_COOKIE) || empty($_COOKIE['user'])) {
@@ -11,11 +11,8 @@ if (!array_key_exists('user', $_COOKIE) || empty($_COOKIE['user'])) {
 }
 
 
-$login = $_COOKIE['user'];
 $card_num = $_GET['card_num'] ?? '';
 
-$result = mysqli_query($conn,"SELECT id FROM users WHERE login = '$login' LIMIT 1");
-$userid = $result->fetch_column(0);
 $products = seller();
 $cards = room('card/?room='.$userid);
 foreach ($cards as $key => $card) {

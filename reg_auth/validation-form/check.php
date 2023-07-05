@@ -23,6 +23,4 @@ require('./../db.php');
 global $conn;
 
 $mysql = mysqli_query( $conn,"INSERT INTO users (login,name,pass) VALUES ('$login','$name','$pass')");
-//$userid = mysqli_insert_id($conn);
-//$mysql = mysqli_query( $conn,"INSERT INTO cards (user_id) VALUES ('$userid')");
 header('location: ./../../log_in.php');

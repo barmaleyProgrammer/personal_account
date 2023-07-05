@@ -14,3 +14,15 @@ $conn = mysqli_connect(
     database: getenv('DB_NAME'),
     port: getenv('DB_PORT')
 );
+function auth(): int|null
+{
+    global $conn;
+    $userName = $_COOKIE['user'] ?? '';
+    if (!empty($userName)) {
+        $result = mysqli_query($conn,"SELECT id FROM users WHERE name = '$userName' LIMIT 1");
+        return $result->fetch_column(0);
+    }
+    return null;
+}
+
+$userid = auth();
