@@ -14,6 +14,8 @@ $conn = mysqli_connect(
     database: getenv('DB_NAME'),
     port: getenv('DB_PORT')
 );
+mysqli_set_charset($conn, 'utf8');
+
 function auth(): int|null
 {
     global $conn;
