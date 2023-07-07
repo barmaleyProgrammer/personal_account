@@ -81,21 +81,23 @@ function togglePasswordVisibility() {
         passwordInput.type = "password";
     }
 }
-function formatPhoneNumber(value) {
-    if (!value) return value;
-    const phoneNumber = value.replace(/[^\d]/g, '');
-    const phoneNumberLength = phoneNumber.length;
-    if (phoneNumberLength <4) return phoneNumber;
-    if (phoneNumberLength <7) {
-        return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`
-    }
-    return `(+${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 5,)
-    }-${phoneNumber.slice(5, 8)}-${phoneNumber.slice(8, 10)}-${phoneNumber.slice(10, 12)}`;
-}
+// function formatPhoneNumber(value) {
+//     const phoneNumber = value.replace(/[^\d]/g, '');
+//     // const phoneNumberLength = phoneNumber.length;//чистая строка
+//     // if (phoneNumberLength <4) return phoneNumber;
+//     // if (phoneNumberLength <7) {
+//     //     return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`
+//     // }
+//     return `(+${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 5)
+//     }-${phoneNumber.slice(5, 8)}-${phoneNumber.slice(8, 10)}-${phoneNumber.slice(10, 12)}`;
+// }
 
 function phoneNumberFormatter() {
     const inputField = document.getElementById('phone-number');
-    const formattedInputValue = formatPhoneNumber(inputField.value);
+    // const formattedInputValue = formatPhoneNumber(inputField.value);
+    const phoneNumber = inputField.value.replace(/[^\d]/g, '');
+    const formattedInputValue = `(+${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 5)
+    }-${phoneNumber.slice(5, 8)}-${phoneNumber.slice(8, 10)}-${phoneNumber.slice(10, 12)}`;
     inputField.value = formattedInputValue;
 }
 
