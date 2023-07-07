@@ -98,3 +98,17 @@ function phoneNumberFormatter() {
     const formattedInputValue = formatPhoneNumber(inputField.value);
     inputField.value = formattedInputValue;
 }
+
+
+function setSumma(event) {
+    let prise;
+    const value = event.options[event.selectedIndex].value;
+    if (value) {
+        prise = productsDict[value];
+    } else {
+        prise = '';
+    }
+
+    const input = event.nextElementSibling;
+    input.value = prise;
+}

@@ -14,6 +14,12 @@ if (!array_key_exists('user', $_COOKIE) || empty($_COOKIE['user'])) {
 $card_num = $_GET['card_num'] ?? '';
 
 $products = seller();
+
+$productsDict = [];
+foreach ($products['data'] as $product) {
+    $productsDict[$product['product_code']] = (float)$product['price'];
+}
+
 $cards = room('card/?room='.$userid);
 foreach ($cards as $key => $card) {
     $balance_res = room('card/'.$card['card_num'].'/balance/');
@@ -26,6 +32,9 @@ foreach ($cards as $key => $card) {
 }
 $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16"><path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/></svg>';
 ?>
+<script>
+    const productsDict = <?= json_encode($productsDict); ?>;
+</script>
 <div class="container">
     <div class="col-12">
         <div id="row">
@@ -140,17 +149,16 @@ $del = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="cur
                                     <div class="tab-pane fade" id="charge-tab-pane<?= $key; ?>" role="tabpanel" aria-labelledby="charge-tab<?= $key; ?>">
                                         <!-- form action="#" onsubmit="charge(event)" method="post" -->
                                         <form action="card_charge.php" method="post">
-                                            <input type="hidden" name="card_num" value="<?= $card['card_num'] ?>"><br>
-                                            <input type="hidden" name="nfc_id" value="<?= $card['nfc_id'] ?>"><br>
-                                            <input type="number" class="form-control" name="summa" placeholder="введіть суму" required><br>
-                                            <select class="form-control" name="product_code" required>
+                                            <input type="hidden" name="card_num" value="<?= $card['card_num'] ?>">
+                                            <input type="hidden" name="nfc_id" value="<?= $card['nfc_id'] ?>">
+                                            <select class="form-control mt-2" name="product_code" required onchange="setSumma(this)">
                                                 <option value="">оберiть продукт</option>
                                                 <?php foreach ($card['products']['data'] as $product) { ?>
                                                     <option id="product_code" value="<?= $product['product_code']; ?>"><?= $product['name']; ?></option>
                                                 <?php } ?>
-                                            </select><br>
-
-                                            <button class="btn btn-success" type="submit">поповнити</button>
+                                            </select>
+                                            <input type="number" class="form-control mt-3" name="summa" placeholder="введіть суму" required>
+                                            <button class="btn btn-success mt-3" type="submit">поповнити</button>
                                         </form>
                                     </div>
                                 </div>
