@@ -4,7 +4,7 @@ global $conn;
 header('Content-Type: application/json; charset=utf-8');
 $values = [];
 
-$token = (array_key_exists('HTTP_AUTHTOKEN', $_SERVER) && $_SERVER['HTTP_AUTHTOKEN'] === 'MySecretToket');
+$token = (array_key_exists('HTTP_AUTHTOKEN', $_SERVER) && $_SERVER['HTTP_AUTHTOKEN'] === 'MySecretToken');
 if (!$token) {
     header('HTTP/1.1 401 Unauthorized');
     exit();
