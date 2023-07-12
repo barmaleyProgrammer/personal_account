@@ -9,3 +9,9 @@
 2) видати список користувачів ім'я, логін, телефони, поштова скринька, дата останнього входу всистему (якщо є)
 
 Коли вибираю продукт, сума повинна підставлятися автоматично (бо там фіксована ціна)
+
+все
+curl --header 'AuthToken: MySecretToket' --location 'https://account.ssoloviov.kiev.ua/back_api.php'
+userId = 146
+curl --header 'AuthToken: MySecretToket' --location 'https://account.ssoloviov.kiev.ua/back_api.php?userid=146'
+

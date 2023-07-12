@@ -13,5 +13,6 @@ $userName = $result->fetch_column(0);
 if(!$userName) {
     exit('користувача не знайдено<br /><a href="./../../log_in.php">Перейти обратно</a>');
 }
+mysqli_query($conn,"UPDATE users SET last_visit_date = NOW() WHERE login = '$login' AND pass = '$pass' LIMIT 1");
 setcookie('user', $userName, time() + 360000, "/");
 header('location: ./../../cards.php');
