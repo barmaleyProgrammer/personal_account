@@ -22,8 +22,9 @@ $values = mysqli_fetch_assoc($res);
                         <small>Формат набору номера: 38 000 000 0000</small><input onkeydown="phoneNumberFormatter()"  id="phone-number" class="form-control profTel" name="phone" value="<?= $values['phone']; ?>" placeholder="введіть номер телефону"><br>
 <!--                       <button onclick="document.getElementById('phone-number').value = ''">Очистити поле</button>-->
            </div>
-            <div class="mt-4">
-                <small>Зміст повідомлення:</small><textarea rows="10" cols="50" name="comments" ><?= $values['comments']; ?></textarea><br>
+            <div class="mt-1">
+<!--                <label for="messageField">Сообщение</label><br>-->
+                <small>Зміст повідомлення:</small><textarea rows="10" cols="50" id="messageField" name="comments" ><?= $values['comments']; ?></textarea><br>
             </div>
             <button class="btn btn-success" type="submit">додати/змінити</button>
         </form>
