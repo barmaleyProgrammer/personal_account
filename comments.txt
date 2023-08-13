@@ -13,5 +13,16 @@
 все
 curl --header 'AuthToken: MySecretToket' --location 'https://account.ssoloviov.kiev.ua/back_api.php'
 userId = 146
-curl --header 'AuthToken: MySecretToket' --location 'https://account.ssoloviov.kiev.ua/back_api.php?userid=146'
+curl --header 'AuthToken: MySecretToket' --location 'https://account.ssoloviov.kiev.ua/back_api.php?userid=146
+
+[barmaley@mbpv][20:57]/Users/barmaley/Intranet/React>cd ../personal_account 
+[barmaley@mbpv][10:31]/Users/barmaley/Intranet/personal_account>git clone https://github.com/firebase/php-jwt.git                                                                                [master]
+Cloning into 'php-jwt'...
+remote: Enumerating objects: 1243, done.
+remote: Counting objects: 100% (737/737), done.
+remote: Compressing objects: 100% (288/288), done.
+remote: Total 1243 (delta 601), reused 485 (delta 449), pack-reused 506
+Receiving objects: 100% (1243/1243), 523.86 KiB | 2.80 MiB/s, done.
+Resolving deltas: 100% (713/713), done.
+[barmaley@mbpv][10:31]/Users/barmaley/Intranet/personal_account>     
 
